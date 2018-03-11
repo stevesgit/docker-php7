@@ -1,5 +1,5 @@
 FROM php:7.2-fpm
-MAINTAINER dev@chialab.it
+MAINTAINER Steve Woo <wjh2013a@gmail.com>
 
 # Install PHP extensions and PECL modules.
 RUN buildDeps=" \
@@ -36,7 +36,8 @@ RUN apt-get update && \
     # Install the amqp extension
     pecl install amqp && \
     docker-php-ext-enable amqp \
-COPY ./docker-php-ext-amqp.ini /usr/local/etc/php/conf.d
+    
+COPY ./docker-php-ext-amqp.ini /usr/local/etc/php/conf.d/docker-php-ext-amqp.ini
 # Install Composer.
 RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
     && ln -s $(composer config --global home) /root/composer
