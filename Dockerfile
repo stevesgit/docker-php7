@@ -35,7 +35,7 @@ RUN apt-get update && \
     apt-get install librabbitmq-dev -y && \
     # Install the amqp extension
     pecl install amqp && \
-    docker-php-ext-enable amqp \
+    docker-php-ext-enable amqp
     
 COPY ./docker-php-ext-amqp.ini /usr/local/etc/php/conf.d/docker-php-ext-amqp.ini
 # Install Composer.
